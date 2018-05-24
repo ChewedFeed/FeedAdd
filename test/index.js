@@ -65,9 +65,8 @@ const payLoad = {
 }
 
 describe('Feed Parser', () => {
-  it('it should parse the feed from the url', (done) => {
+  it('it should add the feed from the url', (done) => {
     payLoad.body = "{\"feed\":\"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml\"}"
-    //payLoad.body = "{\"feed\":\"http://www.guardian.co.uk/world/usa/rss\"}"
 
     underTest(payLoad, console, (error, result) => {
       if (error) {
@@ -81,6 +80,46 @@ describe('Feed Parser', () => {
       expect(resultObj).to.have.property('message')
       expect(resultObj.message).to.have.property('success')
       expect(resultObj.message.success).to.be.equal(true)
+
+      done()
+    })
+  })
+
+  it('it should skip adding feed due to being in cache', (done) => {
+    payLoad.body = "{\"feed\":\"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml\"}"
+
+    underTest(payLoad, console, (error, result) => {
+      if (error) {
+        done(Error(error))
+      }
+
+      expect(result).to.be.an('object')
+      expect(result).to.have.property('body')
+
+      let resultObj = JSON.parse(result.body)
+      expect(resultObj).to.have.property('message')
+      expect(resultObj.message).to.have.property('success')
+      expect(resultObj.message.success).to.be.equal(false)
+
+      done()
+    })
+  })
+
+  it('it should fail to add the feed due to invald url', (done) => {
+    payLoad.body = "{\"feed\":\"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xm\"}"
+
+    underTest(payLoad, console, (error, result) => {
+      if (error) {
+        done(Error(error))
+      }
+
+      expect(result).to.be.an('object')
+      expect(result).to.have.property('body')
+
+      let resultObj = JSON.parse(result.body)
+      expect(resultObj).to.have.property('message')
+      expect(resultObj.message).to.have.property('success')
+      expect(resultObj.message.success).to.be.equal(false)
 
       done()
     })

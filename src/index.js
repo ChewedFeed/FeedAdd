@@ -17,13 +17,11 @@ module.exports = (event, context, callback) => {
       }))
     }
 
-    if (!result.inCache) {
+    if (result.inCache === false) {
       const parser = libs.parser
       parser.url = body.feed
       parser.parse((error, result) => {
         if (error) {
-          bugfixes.error('Parser Error', 103, error)
-
           return callback(null, bugfunctions.lambdaError(103, {
             success: false,
             error: error
@@ -41,11 +39,15 @@ module.exports = (event, context, callback) => {
             }))
           }
 
-          return callback(null, bugfunctions.lambdaResult(104, {
+          return callback(null, bugfunctions.lambdaResult(105, {
             success: true
           }))
         })
       })
+    } else {
+      return callback(null, bugfunctions.lambdaResult(106, {
+        success: false
+      }))
     }
   })
 }

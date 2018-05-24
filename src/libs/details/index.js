@@ -41,7 +41,7 @@ class Details {
     dynamo.scan({
       TableName: process.env.AWS_DYNAMO_TABLE_FEEDS,
       ExpressionAttributeNames: {
-        '#url': 'feedUrl',
+        '#url': 'url',
         '#id': 'feedId'
       },
       ExpressionAttributeValues: {

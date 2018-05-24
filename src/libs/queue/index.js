@@ -25,8 +25,6 @@ class Queue {
       MessageBody: feedString,
       QueueUrl: process.env.AWS_SQS_FEEDS
     }, (error, result) => {
-      bugfixes.log('tester')
-
       if (error) {
         bugfixes.error('SQS Error', error)
 
