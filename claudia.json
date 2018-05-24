@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "feedadd-executor",
+    "name": "feedadd",
+    "region": "eu-west-2"
+  }
+}
