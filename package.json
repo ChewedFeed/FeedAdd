@@ -1,7 +1,7 @@
 {
   "name": "chewedfeed_feedadder",
   "version": "0.0.1",
-  "description": "ChewedFeed Parser",
+  "description": "ChewedFeed Feed Adder",
   "main": "index.js",
   "repository": "git@github.com:ChewedFeed/FeedAdder.git",
   "author": "keloran <keloran@chewedfeed.com>",
@@ -10,7 +10,7 @@
     "test": "yarn test:standard && yarn test:endpoint",
     "test:standard": "standard index.js src/index.js",
     "test:endpoint": "mocha test/ --exit",
-    "claudia:create": "claudia create --name parser --region eu-west-2 --runtime nodejs8.10 --handler index.handler",
+    "claudia:create": "claudia create --name feedadd --region eu-west-2 --runtime nodejs8.10 --handler index.handler",
     "claudia:test": "claudia test-lambda",
     "claudia:deploy": "claudia update --runtime nodejs8.10",
     "watch": "nodemon --exec 'yarn test'"
