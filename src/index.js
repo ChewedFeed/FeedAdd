@@ -1,14 +1,16 @@
 const bugfixes = require('bugfixes')
-
-const libs = require('./libs')
+const libs = require('chewedfeed')
 
 const bugfunctions = bugfixes.functions
 
 module.exports = (event, context, callback) => {
-  const body = JSON.parse(event.body)
+  let feed = event.feed
+  if (bugfunctions.checkIfDefined(event.body)) {
+    feed = JSON.parse(event.body)
+  }
 
   const details = libs.details
-  details.url = body.feed
+  details.url = feed
   details.checkInCache((error, result) => {
     if (error) {
       return callback(null, bugfunctions.lambdaError(100, {
@@ -19,7 +21,7 @@ module.exports = (event, context, callback) => {
 
     if (result.inCache === false) {
       const parser = libs.parser
-      parser.url = body.feed
+      parser.url = feed
       parser.parse((error, result) => {
         if (error) {
           return callback(null, bugfunctions.lambdaError(103, {
