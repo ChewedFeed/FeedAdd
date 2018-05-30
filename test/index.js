@@ -66,7 +66,7 @@ const payLoad = {
 
 describe('Feed Parser', () => {
   it('it should add the feed from the url', (done) => {
-    payLoad.body = "{\"feed\":\"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml\"}"
+    payLoad.body = "{\"feed\":\"https://www.macstories.net/feed/\"}"
 
     underTest(payLoad, console, (error, result) => {
       if (error) {
@@ -86,7 +86,7 @@ describe('Feed Parser', () => {
   })
 
   it('it should skip adding feed due to being in cache', (done) => {
-    payLoad.body = "{\"feed\":\"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml\"}"
+    payLoad.body = "{\"feed\":\"https://www.macstories.net/feed/\"}"
 
     underTest(payLoad, console, (error, result) => {
       if (error) {

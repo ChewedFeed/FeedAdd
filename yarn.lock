@@ -454,13 +454,14 @@ check-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
-chewedfeed@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.3.tgz#b1d656339bde574a9ac6e43c721baf69418ff68d"
+chewedfeed@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.12.tgz#7d335d70b5e1ac5f48aa30d07b57476a64067f6e"
   dependencies:
     aws-sdk "^2.247.1"
     blindparser "^1.0.3"
     bugfixes "^1.7.0"
+    moment "^2.22.1"
     uuid "^3.2.1"
 
 chokidar@^2.0.2:
@@ -2107,6 +2108,10 @@ mocha@^5.2.0:
     minimatch "3.0.4"
     mkdirp "0.5.1"
     supports-color "5.4.0"
+
+moment@^2.22.1:
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
 
 ms@2.0.0:
   version "2.0.0"

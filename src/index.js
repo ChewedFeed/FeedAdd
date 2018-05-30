@@ -12,6 +12,8 @@ module.exports = (event, context, callback) => {
   const details = libs.details
   details.url = feed
   details.checkInCache((error, result) => {
+    bugfixes.log('Details CacheCheck', error, result)
+
     if (error) {
       return callback(null, bugfunctions.lambdaError(100, {
         success: false,
@@ -23,6 +25,8 @@ module.exports = (event, context, callback) => {
       const parser = libs.parser
       parser.url = feed
       parser.parse((error, result) => {
+        bugfixes.log('Parser Parse', error, result)
+
         if (error) {
           return callback(null, bugfunctions.lambdaError(103, {
             success: false,
@@ -31,9 +35,9 @@ module.exports = (event, context, callback) => {
         }
 
         details.title = result.metadata.title
-        details.lastUpdated = Date.now()
-
         details.add((error, result) => {
+          bugfixes.log('Details Add', error, result)
+
           if (error) {
             return callback(null, bugfunctions.lambdaError(104, {
               success: false,
