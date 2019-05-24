@@ -194,21 +194,7 @@ atob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
 
-aws-sdk@^2.173.0, aws-sdk@^2.245.1:
-  version "2.245.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.245.1.tgz#756b3b7a5314651920fdbce032d4730f516ef360"
-  dependencies:
-    buffer "4.9.1"
-    events "1.1.1"
-    ieee754 "1.1.8"
-    jmespath "0.15.0"
-    querystring "0.2.0"
-    sax "1.2.1"
-    url "0.10.3"
-    uuid "3.1.0"
-    xml2js "0.4.17"
-
-aws-sdk@^2.247.1:
+aws-sdk@^2.173.0, aws-sdk@^2.245.1, aws-sdk@^2.247.1:
   version "2.247.1"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.247.1.tgz#be5f220d40665ac91d3a84a51f029fa05560c4ee"
   dependencies:
@@ -454,9 +440,9 @@ check-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
-chewedfeed@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.15.tgz#62bdb74f282ecbe95c2e02031635536fbbc75229"
+chewedfeed@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.16.tgz#7b75de613c5fee07c01aba72d5e17b2870e28e1b"
   dependencies:
     aws-sdk "^2.247.1"
     blindparser "^1.0.3"
